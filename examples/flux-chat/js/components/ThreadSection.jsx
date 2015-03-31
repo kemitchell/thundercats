@@ -11,9 +11,11 @@
  */
 
 var React = require('react');
-var ThreadListItem = require('../components/ThreadListItem.react');
+var ThreadListItem = require('../components/ThreadListItem.jsx');
 var ChatMessageUtils = require('../utils/ChatMessageUtils');
-var StateStreamMixin = require('rx-react').StateStreamMixin;
+var ObservableStateMixin = require('thundercats').ObservableStateMixin;
+var Rx = require('rx');
+var rxObservable = Rx.Observable.create();
 var PureRendererMixin = require('react/lib/ReactComponentWithPureRenderMixin');
 
 
@@ -28,13 +30,13 @@ function getUnreadCount(threads) {
 }
 
 var ThreadSection = React.createClass({
-  mixins: [StateStreamMixin, PureRendererMixin],
+  mixins: [ObservableStateMixin, PureRendererMixin],
 
   contextTypes: {
     threadStore: React.PropTypes.object.isRequired
   },
 
-  getStateStream: function() {
+  getObservable: function() {
     return this.context.threadStore.map(function (data) {
       var threads = data.threads;
       return {
@@ -44,7 +46,6 @@ var ThreadSection = React.createClass({
       };
     });
   },
-
 
   render: function() {
     var threadListItems = this.state.threads.map(function(thread) {

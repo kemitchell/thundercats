@@ -10,16 +10,16 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-var MessageComposer = require('./MessageComposer.react');
-var MessageListItem = require('./MessageListItem.react');
+var MessageComposer = require('./MessageComposer.jsx');
+var MessageListItem = require('./MessageListItem.jsx');
 var React = require('react');
-var StateStreamMixin = require('rx-react').StateStreamMixin;
+var ObservableStateMixin = require('thundercats').ObservableStateMixin;
 var Rx = require('rx');
 var PureRendererMixin = require('react/lib/ReactComponentWithPureRenderMixin');
 
 var MessageSection = React.createClass({
 
-  mixins: [StateStreamMixin, PureRendererMixin],
+  mixins: [ObservableStateMixin, PureRendererMixin],
 
   contextTypes: {
     threadStore: React.PropTypes.object.isRequired,

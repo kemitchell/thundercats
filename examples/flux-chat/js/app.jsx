@@ -12,7 +12,7 @@
 
 // This file bootstraps the entire application.
 
-var ChatApp = require('./components/ChatApp.react');
+var ChatApp = require('./components/ChatApp.jsx');
 var ChatExampleData = require('./ChatExampleData');
 var ChatWebAPIUtils = require('./utils/ChatWebAPIUtils');
 var ThreadStore = require('./stores/ThreadStore');
