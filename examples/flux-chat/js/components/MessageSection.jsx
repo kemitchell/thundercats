@@ -26,6 +26,19 @@ var MessageSection = React.createClass({
     messageStore: React.PropTypes.object.isRequired
   },
 
+  getObservable: function() {
+    console.log('getObservable called from message section' +
+                                       'component')
+    return Rx.Observable.create(function(observer) {
+    })
+  },
+
+  getInitialState: function() {
+    return {
+      messages: []
+    }
+  },
+
   getStateStream: function() {
     return Rx.Observable.combineLatest(
       this.context.threadStore,
