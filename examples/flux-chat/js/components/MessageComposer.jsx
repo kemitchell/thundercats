@@ -46,6 +46,8 @@ var MessageComposer = React.createClass({
       event.preventDefault();
       var text = this.state.text.trim();
       if (text) {
+        console.log('sending message')
+        console.log('props', this.props)
         ChatActions.createMessage({text: text, threadID: this.props.thread.id});
       }
       this.setState({text: ''});

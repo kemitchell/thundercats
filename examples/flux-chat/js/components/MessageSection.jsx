@@ -27,15 +27,17 @@ var MessageSection = React.createClass({
   },
 
   getObservable: function() {
-    console.log('getObservable called from message section' +
-                                       'component')
     return Rx.Observable.create(function(observer) {
     })
   },
 
   getInitialState: function() {
     return {
-      messages: []
+      messages: [],
+      thread: {
+        title: 'foo',
+        id: 1
+      }
     }
   },
 
@@ -83,6 +85,7 @@ var MessageSection = React.createClass({
   },
 
   render: function() {
+    console.log('message section state', this.state)
     var messageListItems = this.state.messages.map(function(message) {
       return (
         <MessageListItem

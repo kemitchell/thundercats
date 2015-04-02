@@ -2,6 +2,7 @@ var Action = require('thundercats').Action;
 var ChatWebAPIUtils = require('../utils/ChatWebAPIUtils');
 
 var createMessage = Action.create(function(data) {
+  console.log('create message called', data)
   var text = data.text;
   var threadID = data.threadID;
 
