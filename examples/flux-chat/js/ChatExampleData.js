@@ -13,6 +13,7 @@
 module.exports = {
 
   init: function() {
+    console.log('initing localstorage')
     localStorage.clear();
     localStorage.setItem('messages', JSON.stringify([
       {
@@ -73,5 +74,4 @@ module.exports = {
       }
     ]));
   }
-
 };

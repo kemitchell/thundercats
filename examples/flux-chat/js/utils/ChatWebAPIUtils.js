@@ -24,6 +24,8 @@ module.exports = {
   getAllMessages: function() {
     // simulate retrieving data from a database
     var rawMessages = JSON.parse(localStorage.getItem('messages'));
+    console.log('rawMessages', rawMessages)
+    console.log('ChatActions', ChatActions)
 
     // simulate success callback
     ChatActions.receiveRawMessages(rawMessages);
