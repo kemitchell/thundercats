@@ -27,14 +27,8 @@ var ChatActions = Action.createActions([
       };
     }
   },
-  {
-    name: 'receiveRawMessages',
-    map: Action.create()
-  },
-  {
-    name: 'clickThread',
-    map: Action.create()
-  }
+  'receiveRawMessages',
+  'clickThread'
 ]);
 console.log("chatAction generated", ChatActions)
 

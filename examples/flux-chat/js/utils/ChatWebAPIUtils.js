@@ -11,6 +11,7 @@
  */
 
 var ChatActions = require('../actions/ChatActions');
+var MessageStore = require('../stores/MessageStore')
 var Prom = typeof Promise === 'undefined' ? require('bluebird') : Promise;
 
 // !!! Please Note !!!
@@ -26,6 +27,7 @@ module.exports = {
     var rawMessages = JSON.parse(localStorage.getItem('messages'));
     console.log('rawMessages', rawMessages)
     console.log('ChatActions', ChatActions)
+    console.log('messagestore', MessageStore)
 
     // simulate success callback
     ChatActions.receiveRawMessages(rawMessages);
@@ -33,6 +35,7 @@ module.exports = {
 
   createMessage: function(message, threadName) {
     // simulate writing to a database
+    console.log('calling createMessage')
     var rawMessages = JSON.parse(localStorage.getItem('messages'));
     var timestamp = Date.now();
     var id = 'm_' + timestamp;
@@ -50,5 +53,4 @@ module.exports = {
 
     return Prom.resolve(createdMessage);
   }
-
 };
